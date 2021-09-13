@@ -23,20 +23,20 @@ const calculateWinner = (squares) => {
   }
 
   // calculateWinner returns the value of the winner player if exists (X or O)
-  // we return null if there is no winner to rendeer an empty message on GameLayout
+  // we return null if there is no winner in order to render an empty message on GameLayout
   return null;
 }
 
 /*
 * Main container: here we have all the logic that controls the game,
 * including our main state.
-* Note that we don't include any interface-related jsx oon containers
+* Note that we don't include any interface-related jsx on containers
 */
 const Game = () => {
 
   // our application state.
   // for small apps, this can be on a top-level container,
-  // but it's noot adviced for real apps, we should be using an external
+  // but it's not adviced for real apps, we should be using an external
   // state handling library
   const [history, setHistory] = useState(
     [
@@ -47,7 +47,7 @@ const Game = () => {
   const [xIsNext, setxIsNext] = useState(true);
 
   // clicking on a square should update the state and check for a winner
-  // we make copies of the state, in order to avoid mutations
+  // we make copies of the state, in order to avoid mutation
   const handleClick = (i) => {
     const historySlice = history.slice(0, stepNumber + 1);
     const current = historySlice[historySlice.length - 1];
@@ -68,7 +68,7 @@ const Game = () => {
     setxIsNext(!xIsNext);
   }
 
-  // moving through the history state just replaces the current step number.
+  // moving through the history is performed by replacing the current step number.
   // we dont delete the rest, since we want to be able to go Back to the Future ™
   const jumpTo = (step) => {
     setStepNumber(step);
